@@ -10,6 +10,10 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/antiqua", antiquaRoute);
+app.get("/api/other", antiquaRoute);
+app.get("/", function (req, res) {
+  res.send("hello world");
+});
 
 const PORT = process.env.PORT || 5000;
 
