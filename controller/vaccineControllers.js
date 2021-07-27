@@ -1,6 +1,6 @@
 const Antiqua = require("../models/Antiqua");
 
-const getAllAntiqua = async (req, res) => {
+const getData = async (req, res) => {
   try {
     const antiqua = await Antiqua.find({});
 
@@ -44,7 +44,7 @@ const getByDistrict = async (req, res) => {
 };
 
 module.exports = {
-  getAllAntiqua,
+  getData,
   getById,
   getByName,
   getByDistrict,
