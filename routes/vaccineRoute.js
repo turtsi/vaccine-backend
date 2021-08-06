@@ -6,24 +6,24 @@ const getZerpfy = require("../controllers/zerpfyController");
 const getSolar = require("../controllers/solarController");
 
 router.get("/vaccines", async (req, res) => {
-  if (req.query.d != null) {
-    if (!validateDate(req.query.d)) res.json({ message: "Invalid date" });
+  if (req.query.date != null) {
+    if (!validateDate(req.query.date)) res.json({ message: "Invalid date" });
     try {
-      const date = dayjs(req.query.d)
+      const date = dayjs(req.query.date)
         .hour(23)
         .minute(59)
         .second(59)
         .format("YYYY-MM-DDTHH:mm:ss.SSSSSS[Z]");
       const monthDate = formatMonthDate(date);
       const nextTenDays = formatNextTenDate(date);
-      const startOfDay = dayjs(req.query.d)
+      const startOfDay = dayjs(req.query.date)
         .hour(0)
         .minute(0)
         .second(0)
         .millisecond(0)
         .format("YYYY-MM-DDTHH:mm:ss.SSSSSS[Z]");
 
-      const endOfDay = dayjs(req.query.d)
+      const endOfDay = dayjs(req.query.date)
         .hour(23)
         .minute(59)
         .second(59)
@@ -44,7 +44,7 @@ router.get("/vaccines", async (req, res) => {
           endOfDay
         );
         res.json(data);
-      } else if (req.query.v === "zerpfy") {
+      } else if (req.query.vaccine === "zerpfy") {
         const data = await getZerpfy(
           date,
           monthDate,
@@ -54,7 +54,7 @@ router.get("/vaccines", async (req, res) => {
           endOfDay
         );
         res.json(data);
-      } else if (req.query.v === "solar") {
+      } else if (req.query.vaccine === "solar") {
         const data = await getSolar(
           date,
           monthDate,
