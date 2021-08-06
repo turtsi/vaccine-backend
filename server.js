@@ -11,8 +11,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// app.use("/api/antiqua", vaccineRoute);
-// app.get("/vaccines", vaccineRoute);
 app.get("/vaccines", vaccineRoute);
 
 const PORT = process.env.PORT || 5000;
