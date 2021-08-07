@@ -6,6 +6,18 @@ const {
   getVaccinatedGender,
 } = require("./functions");
 
+const getAllSolar = async (req, res) => {
+  try {
+    const data = await Solar.find({});
+    if (data) {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
 const getSolar = async (
   date,
   monthDate,
@@ -145,4 +157,4 @@ const getSolar = async (
   return importData;
 };
 
-module.exports = getSolar;
+module.exports = { getSolar, getAllSolar };

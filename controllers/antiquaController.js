@@ -6,6 +6,17 @@ const {
   getVaccinatedGender,
 } = require("./functions");
 
+const getAllAntiqua = async (req, res) => {
+  try {
+    const data = await Antiqua.find({});
+    if (data) {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
 const getAntiqua = async (
   date,
   monthDate,
@@ -145,4 +156,4 @@ const getAntiqua = async (
   return importData;
 };
 
-module.exports = getAntiqua;
+module.exports = { getAntiqua, getAllAntiqua };

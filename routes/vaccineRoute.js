@@ -1,10 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const dayjs = require("dayjs");
-const getAntiqua = require("../controllers/antiquaController");
-const getZerpfy = require("../controllers/zerpfyController");
-const getSolar = require("../controllers/solarController");
+const {
+  getAntiqua,
+  getAllAntiqua,
+} = require("../controllers/antiquaController");
+const { getZerpfy, getAllZerpfy } = require("../controllers/zerpfyController");
+const { getSolar, getAllSolar } = require("../controllers/solarController");
 
+router.get("/antiqua", getAllAntiqua);
+router.get("/solar", getAllSolar);
+router.get("/zerpfy", getAllZerpfy);
 router.get("/vaccines", async (req, res) => {
   if (req.query.date != null) {
     if (!validateDate(req.query.date)) res.json({ message: "Invalid date" });

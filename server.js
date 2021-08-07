@@ -8,9 +8,17 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json(
+    "Backend made using node.js and express. All vaccine data is found on /antiqua /solar and /zerpfy"
+  );
+});
+app.get("/antiqua", vaccineRoute);
+app.get("/solar", vaccineRoute);
+app.get("/zerpfy", vaccineRoute);
 app.get("/vaccines", vaccineRoute);
 
 const PORT = process.env.PORT || 5000;

@@ -6,6 +6,17 @@ const {
   getVaccinatedGender,
 } = require("./functions");
 
+const getAllZerpfy = async (req, res) => {
+  try {
+    const data = await Zerpfy.find({});
+    if (data) {
+      res.json(data);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
 const getZerpfy = async (
   date,
   monthDate,
@@ -145,4 +156,4 @@ const getZerpfy = async (
   return importData;
 };
 
-module.exports = getZerpfy;
+module.exports = { getZerpfy, getAllZerpfy };
