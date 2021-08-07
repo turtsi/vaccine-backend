@@ -34,7 +34,7 @@ router.get("/vaccines", async (req, res) => {
         .second(0)
         .millisecond(0)
         .format("YYYY-MM-DDTHH:mm:ss.SSSSSS[Z]");
-      if (req.query.v === "antiqua") {
+      if (req.query.vaccine === "antiqua") {
         const data = await getAntiqua(
           date,
           monthDate,
