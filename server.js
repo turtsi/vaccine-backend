@@ -9,7 +9,9 @@ connectDB();
 const app = express();
 
 app.use(
-  cors({ origin: ["http://localhost:3000", "solita-frontend.netlify.app"] })
+  cors({
+    origin: ["http://localhost:3000", "https://solita-frontend.netlify.app"],
+  })
 );
 app.use(express.json());
 
