@@ -8,12 +8,14 @@ connectDB();
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(
+  cors({ origin: ["http://localhost:3000", "solita-frontend.netlify.app"] })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json(
-    "Backend made using node.js and express. All vaccine data is found on /antiqua /solar and /zerpfy"
+    "Backend made using node.js and express. Raw vaccine data is found on /antiqua, /solar and /zerpfy"
   );
 });
 app.get("/antiqua", vaccineRoute);
@@ -24,3 +26,5 @@ app.get("/vaccines", vaccineRoute);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+module.exports = app;
