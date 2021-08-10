@@ -1,8 +1,8 @@
-# Solita vaccine exercise
+# Vaccine exercise
 
 The backend of the vaccine exercise
 
-Repository for the frontend side can be found at [https://github.com/turtsi/solita-frontend](https://github.com/turtsi/solita-frontend)
+Repository for the frontend side can be found at [https://github.com/turtsi/vaccine-frontend](https://github.com/turtsi/vaccine-frontend)
 
 ## About app
 
@@ -10,7 +10,7 @@ The purpose of this application was to create working backend to handle data pro
 
 ## Running app
 
-The app is running in Heroku at [https://solita-backend.herokuapp.com](https://solita-backend.herokuapp.com)
+The app is running in Heroku at [https://vaccine-exercise-backend.herokuapp.com](https://vaccine-exercise-backend.herokuapp.com)
 
 To start using app run
 
