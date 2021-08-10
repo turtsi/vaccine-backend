@@ -1,20 +1,29 @@
 # Solita vaccine exercise
 
 The backend of the vaccine exercise
+
 Repository for the frontend side can be found at [https://github.com/turtsi/solita-frontend](https://github.com/turtsi/solita-frontend)
 
-### Running app
+## About app
+
+The purpose of this application was to create working backend to handle data processing and connect application to the database. The frontend displays the processed vaccines data based on selected date.
+
+## Running app
 
 The app is running in Heroku at [https://solita-backend.herokuapp.com](https://solita-backend.herokuapp.com)
 
 To start using app run
+
 `npm install`
 
 Run server locally with
+
 `node server.js`
+
 Server is set to run on [http://localhost:5000](http://localhost:5000)
 
 Backend can be tested with
+
 `npm test`
 
 ### Made with
