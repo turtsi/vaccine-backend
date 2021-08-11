@@ -36,9 +36,22 @@ const getVaccinatedGender = (data, gender) => {
   return count;
 };
 
+const getHealthDistrict = (data, district) => {
+  let count = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].dateInjected) {
+      for (let j = 0; j < data[i].dateInjected.length; j++) {
+        if (data[i].healthCareDistrict === district) count++;
+      }
+    }
+  }
+  return count;
+};
+
 module.exports = {
   getTotalInjections,
   getTotalUsed,
   getExpiredBottles,
   getVaccinatedGender,
+  getHealthDistrict,
 };

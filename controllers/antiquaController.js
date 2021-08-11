@@ -4,6 +4,7 @@ const {
   getTotalUsed,
   getExpiredBottles,
   getVaccinatedGender,
+  getHealthDistrict,
 } = require("./functions");
 
 const getAllAntiqua = async (req, res) => {
@@ -146,6 +147,13 @@ const getAntiqua = async (
     totalExpiredBottles: getExpiredBottles(expiredBottles),
     totalExpiredInjections: expiredBottleInjections,
     nextTenDayExpire: getExpiredBottles(tenDayData),
+    vaccinationsPerDistrict: {
+      hyks: getHealthDistrict(data, "HYKS"),
+      kys: getHealthDistrict(data, "KYS"),
+      oys: getHealthDistrict(data, "OYS"),
+      tays: getHealthDistrict(data, "TAYS"),
+      tyks: getHealthDistrict(data, "TYKS"),
+    },
     gender: {
       male: getVaccinatedGender(data, "male"),
       female: getVaccinatedGender(data, "female"),
