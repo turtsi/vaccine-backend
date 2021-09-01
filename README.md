@@ -18,7 +18,7 @@ To start using app run
 
 Run server locally with
 
-`node server.js`
+`npm start`
 
 Server is set to run on [http://localhost:5000](http://localhost:5000)
 
